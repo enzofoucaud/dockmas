@@ -1,0 +1,114 @@
+modules:
+  get_addresses:
+    headers:
+      Content-Type: application/json
+    body:
+      content: |
+        {
+           "jsonrpc": "2.0",
+          "id": 1,
+          "method": "get_addresses",
+          "params": [["YOUR_MASSA_ADDRESS"]]
+        }
+
+    metrics:
+      - name: massa_getadd_roll
+        type: object
+        path: "{ .result[*] }"
+        labels:
+          address: "{ .address }"
+        values:
+          final_roll: "{ .final_roll_count }"
+          candidate_roll: "{ .candidate_roll_count }"
+          final_balance: "{ .final_balance }"
+          candidate_balance: "{ .candidate_balance }"
+
+      - name: massa_getadd_cycle
+        type: object
+        path: "{ .result[*].cycle_infos[*] }"
+        labels:
+          cycle: " { .cycle }"
+          final: " { .is_final }"
+        values:
+          block_produit: "{ .ok_count }"
+          block_echoue: "{ .nok_count }"
+
+      - name: massa_getadd_block_created
+        type: object
+        path: "{ .result[*] }"
+        labels:
+          address: "{.created_blocks[*] }"
+        values:
+          IterationBlockCreer: 1
+
+  get_status:
+    headers:
+      Content-Type: application/json
+    body:
+      content: |
+        {
+           "jsonrpc": "2.0",
+          "id": 1,
+          "method": "get_status"
+        }
+    metrics:
+      - name: massa_getstatus_node_infos
+        type: object
+        path: "{ .result }"
+        labels:
+          node_id: "{ .node_id }"
+          node_ip: "{ .node_ip }"
+          version: "{ .version }"
+        values:
+          fake: 0
+
+      - name: massa_getstatus_network_stats
+        type: object
+        path: "{ .result }"
+        labels:
+          NetworkStat: " Network Stats"
+        values:
+          in_connection_count: "{ .network_stats.in_connection_count }"
+          out_connection_count: "{ .network_stats.out_connection_count }"
+          known_peer_count: "{ .network_stats.known_peer_count }"
+          banned_peer_count: "{ .network_stats.banned_peer_count }"
+          active_node_count: "{ .network_stats.active_node_count }"
+          current_cycle: "{ .current_cycle }"
+
+      - name: massa_getstatus_network_config
+        type: object
+        path: "{ .result }"
+        labels:
+          NetworkConfig: " Network Config"
+        values:
+          block_reward: "{ .config.block_reward }"
+          roll_price: "{ .config.roll_price }"
+          genesis_timestamp: "{ .config.genesis_timestamp }"
+          end_timestamp: "{ .config.end_timestamp }"
+          thread_count: "{ .config.thread_count }"
+          t0: "{ .config.t0 }"
+          delta_f0: "{ .config.delta_f0 }"
+          operation_validity_periods: "{ .config.operation_validity_periods }"
+          periods_per_cycle: "{ .config.periods_per_cycle }"
+          max_block_size: "{ .config.max_block_size }"
+
+  get_stakers:
+    headers:
+      Content-Type: application/json
+    body:
+      content: |
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "get_stakers",
+            "params": [ {"offset": 0, "limit": 10000 }]
+        }
+    metrics:
+      - name: massa_getstakers_infos
+        type: object
+        path: "{ $ }"
+        labels:
+          staker: "{ .result[*] }"
+        values:
+          length: "{.result.length()}"
+          nombre_stakers: "{ .result[*] }"
