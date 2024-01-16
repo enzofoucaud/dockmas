@@ -902,16 +902,14 @@
                         "mode": "thresholds"
                     },
                     "mappings": [],
+                    "max": 0,
+                    "min": 0,
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "green",
+                                "color": "blue",
                                 "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
                             }
                         ]
                     }
@@ -937,9 +935,9 @@
                     "values": false
                 },
                 "showThresholdLabels": false,
-                "showThresholdMarkers": true
+                "showThresholdMarkers": false
             },
-            "pluginVersion": "10.2.2",
+            "pluginVersion": "9.5.1",
             "targets": [
                 {
                     "datasource": "Prometheus",
