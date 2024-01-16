@@ -9,6 +9,17 @@ If you like this project and you want to support my work, you can:
 
 - Send some $MASSA to my address: `AU12HMRMWkW9yntwnRJnbuv1mMT4MfZP9eX32TMosvvireutwaZw4`
 
+## Requirements
+
+In order to run this project you need to install:
+
+- [Docker](https://docs.docker.com/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+You need to open the following ports on massa node:
+
+- 31248 (prometheus)
+
 ## Install
 
 Clone this repository on your Docker host, cd into dockprom directory and run compose up:
