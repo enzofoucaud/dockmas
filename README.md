@@ -32,6 +32,7 @@ cd dockmas
 You need to update some informations in the `init.sh` file:
 
 - NODE_PUBLIC_IP is the public IP of your node
+- NODE_PRIVATE_IP is the private IP of your node
 - MASSA_WALLET_ADDRESS is the wallet address of your node
 
 Then run the `init.sh` script:
