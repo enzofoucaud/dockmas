@@ -37,7 +37,7 @@ scrape_configs:
   - job_name: massa_natif
     scrape_interval: 10s
     static_configs:
-      - targets: ["YOUR_NODE_PUBLIC_IP:31248"]
+      - targets: ["YOUR_NODE_PRIVATE_IP:31248"]
 
   - job_name: massa_getstatus
     scrape_interval: 10s

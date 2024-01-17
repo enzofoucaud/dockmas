@@ -18,7 +18,7 @@ In order to run this project you need to install:
 
 You need to open the following ports on massa node:
 
-- 31248 (prometheus)
+- 31248 (prometheus - **private**)
 
 ## Install
 
