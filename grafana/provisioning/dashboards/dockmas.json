@@ -997,7 +997,7 @@
                     "values": false
                 },
                 "showThresholdLabels": false,
-                "showThresholdMarkers": true
+                "showThresholdMarkers": false
             },
             "pluginVersion": "10.2.2",
             "targets": [
