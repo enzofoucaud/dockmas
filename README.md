@@ -3,12 +3,6 @@
 A monitoring solution for Massa Node.
 It is based on [dockprom](https://github.com/stefanprodan/dockprom).
 
-## Donations
-
-If you like this project and you want to support my work, you can:
-
-- Send some $MASSA to my address: `AU12HMRMWkW9yntwnRJnbuv1mMT4MfZP9eX32TMosvvireutwaZw4`
-
 ## Requirements
 
 In order to run this project you need to install:
@@ -42,3 +36,9 @@ Then run the `init.sh` script:
 ```
 
 Run `docker-compose up -d` to start all the services.
+
+## Donations
+
+If you like this project and you want to support my work, you can:
+
+- Send some $MASSA to my address: `AU12HMRMWkW9yntwnRJnbuv1mMT4MfZP9eX32TMosvvireutwaZw4`
