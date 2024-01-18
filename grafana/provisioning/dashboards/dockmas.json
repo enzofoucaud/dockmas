@@ -1592,9 +1592,12 @@
             "type": "barchart"
         }
     ],
-    "refresh": "5s",
+    "refresh": "10s",
     "schemaVersion": 38,
-    "tags": [],
+    "tags": [
+        "massa",
+        "node"
+    ],
     "templating": {
         "list": []
     },
@@ -1603,7 +1606,7 @@
         "to": "now"
     },
     "timepicker": {},
-    "timezone": "",
+    "timezone": "browser",
     "title": "Massa Node",
     "uid": "e2c23ddc-8897-450b-9972-a4c55823034e",
     "version": 1,
