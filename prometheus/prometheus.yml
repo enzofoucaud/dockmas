@@ -37,14 +37,14 @@ scrape_configs:
   - job_name: massa_natif
     scrape_interval: 10s
     static_configs:
-      - targets: ["YOUR_NODE_PRIVATE_IP:31248"]
+      - targets: ["YOUR_NODE_IP:31248"]
 
   - job_name: massa_getstatus
     scrape_interval: 10s
     metrics_path: /probe
     params:
       module: [get_status]
-      target: [http://YOUR_NODE_PUBLIC_IP:33035/api/v2]
+      target: [http://YOUR_NODE_IP:33035/api/v2]
     static_configs:
       - targets:
           - jsonexporter:7979

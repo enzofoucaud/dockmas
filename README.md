@@ -12,7 +12,8 @@ In order to run this project you need to install:
 
 You need to open the following ports on massa node:
 
-- 31248 (prometheus - **private**)
+- 31248 (prometheus)
+- 33035 (public api v2)
 
 ## Install
 
@@ -25,8 +26,7 @@ cd dockmas
 
 You need to update some informations in the `init.sh` file:
 
-- NODE_PUBLIC_IP is the public IP of your node
-- NODE_PRIVATE_IP is the private IP of your node
+- NODE_IP is the public IP of your node
 - MASSA_WALLET_ADDRESS is the wallet address of your node
 
 Then run the `init.sh` script:
