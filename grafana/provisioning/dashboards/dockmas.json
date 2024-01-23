@@ -470,32 +470,13 @@
             "targets": [
                 {
                     "datasource": "Prometheus",
-                    "editorMode": "builder",
-                    "exemplar": false,
-                    "expr": "rolls",
-                    "hide": true,
-                    "legendFormat": "",
-                    "range": true,
-                    "refId": "total_rolls"
-                },
-                {
-                    "datasource": "Prometheus",
-                    "editorMode": "builder",
-                    "expr": "massa_getadd_roll_final_roll",
-                    "hide": true,
+                    "editorMode": "code",
+                    "expr": "176256 * sum(massa_getadd_roll_final_roll) / sum(rolls)",
+                    "hide": false,
+                    "instant": false,
                     "legendFormat": "__auto",
                     "range": true,
-                    "refId": "final_rolls"
-                },
-                {
-                    "datasource": {
-                        "type": "__expr__",
-                        "uid": "${DS_EXPRESSION}"
-                    },
-                    "expression": "176256*($final_rolls/$total_rolls)",
-                    "hide": false,
-                    "refId": "C",
-                    "type": "math"
+                    "refId": "A"
                 }
             ],
             "title": "Daily ($MASSA)",
@@ -551,32 +532,13 @@
             "targets": [
                 {
                     "datasource": "Prometheus",
-                    "editorMode": "builder",
-                    "exemplar": false,
-                    "expr": "rolls",
-                    "hide": true,
-                    "legendFormat": "",
-                    "range": true,
-                    "refId": "total_rolls"
-                },
-                {
-                    "datasource": "Prometheus",
-                    "editorMode": "builder",
-                    "expr": "massa_getadd_roll_final_roll",
-                    "hide": true,
+                    "editorMode": "code",
+                    "expr": "(176256 * (sum(massa_getadd_roll_final_roll) / sum(rolls)) * 365) / sum(massa_getadd_roll_final_roll)",
+                    "hide": false,
+                    "instant": false,
                     "legendFormat": "__auto",
                     "range": true,
-                    "refId": "final_rolls"
-                },
-                {
-                    "datasource": {
-                        "type": "__expr__",
-                        "uid": "${DS_EXPRESSION}"
-                    },
-                    "expression": "(176256*($final_rolls/$total_rolls)*365)/$final_rolls",
-                    "hide": false,
-                    "refId": "C",
-                    "type": "math"
+                    "refId": "A"
                 }
             ],
             "title": "APR (%)",
