@@ -68,3 +68,12 @@ groups:
       summary: "Jenkins high memory usage"
       description: "Jenkins memory consumption is at {{ humanize $value}}."
 
+- name: massa
+  rules:
+  - alert: massa_buy_new_roll
+    expr: massa_getadd_roll_final_balance >= 100
+    labels:
+      severity: info
+    annotations:
+      summary: "Time to buy a new roll"
+      description: "You wallet contains more than 100 $MASSA, it's time to buy a new roll!"
