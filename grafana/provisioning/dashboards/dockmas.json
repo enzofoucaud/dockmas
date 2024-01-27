@@ -508,7 +508,7 @@
             },
             "gridPos": {
                 "h": 6,
-                "w": 6,
+                "w": 3,
                 "x": 6,
                 "y": 8
             },
@@ -542,6 +542,100 @@
                 }
             ],
             "title": "APR (%)",
+            "type": "stat"
+        },
+        {
+            "datasource": "Prometheus",
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "dark-red",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 6,
+                "w": 3,
+                "x": 9,
+                "y": 8
+            },
+            "id": 62,
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto",
+                "wideLayout": true
+            },
+            "pluginVersion": "10.2.2",
+            "targets": [
+                {
+                    "datasource": "Prometheus",
+                    "editorMode": "code",
+                    "expr": "massa_getadd_roll_candidate_roll",
+                    "hide": true,
+                    "instant": false,
+                    "legendFormat": "__auto",
+                    "range": true,
+                    "refId": "A"
+                },
+                {
+                    "datasource": "Prometheus",
+                    "editorMode": "code",
+                    "expr": "176256/sum(rolls)*365",
+                    "hide": true,
+                    "instant": false,
+                    "legendFormat": "__auto",
+                    "range": true,
+                    "refId": "B"
+                },
+                {
+                    "datasource": {
+                        "name": "Expression",
+                        "type": "__expr__",
+                        "uid": "__expr__"
+                    },
+                    "expression": "365/(100/($A*$B/365))",
+                    "hide": true,
+                    "refId": "C",
+                    "type": "math"
+                },
+                {
+                    "datasource": {
+                        "name": "Expression",
+                        "type": "__expr__",
+                        "uid": "__expr__"
+                    },
+                    "expression": "(((1+($B/100/$C))**$C)-1)*100",
+                    "hide": false,
+                    "refId": "D",
+                    "type": "math"
+                }
+            ],
+            "title": "APY (%)",
             "type": "stat"
         },
         {
